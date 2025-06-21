@@ -132,7 +132,7 @@ export default function App() {
             ☰
           </button>
           <motion.div
-            className={`absolute top-14 left-0 w-full to-[#141830] md:bg-transparent md:static md:w-auto flex-col md:flex md:flex-row gap-4 p-4 md:p-0 shadow-lg md:shadow-none border-t border-blue-800 md:border-none transition-all ${menuOpen ? "flex" : "hidden"
+            className={`absolute top-14 bg-black/85 left-0 w-full to-[#141830] md:bg-transparent md:static md:w-auto flex-col md:flex md:flex-row gap-4 p-4 md:p-0 shadow-lg md:shadow-none border-t border-blue-800 md:border-none transition-all ${menuOpen ? "flex" : "hidden"
               }`}
           >
             {["Home", "About", "Experience", "Projects", "Services", "Skills", "Contact"].map((section) => (
