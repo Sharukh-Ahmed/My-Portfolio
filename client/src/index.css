@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* your custom classes like @keyframes twinkle can go below */
+@keyframes float-up {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1.5;
+    transform: translateY(-40px) scale(1.2);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 4s infinite ease-in-out;
+}
