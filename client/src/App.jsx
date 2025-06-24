@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaReact,
@@ -18,58 +18,20 @@ import IslamicBooks_Home from "./assets/IslamicBooks-Home.png";
 
 // Projects
 const projects = [
-  {
-    title: "TechBid AI",
-    desc: "Construction Estimator with AI suggestions and user-learned pricing.",
-    img: TechBidAI_Home,
-    link: "https://tech-bid-ai.vercel.app",
-  },
-  {
-    title: "IslamicBooks",
-    desc: "E-Books Store for Classical Islamic Books and More!",
-    img: IslamicBooks_Home,
-    link: "https://islamic-books.vercel.app",
-  },
-  {
-    title: "BookStore",
-    desc: "Modern bookstore full CRUD API & DataBase",
-    img: Bookstore_Home,
-    link: "https://book-store-ashen-delta.vercel.app",
-  },
+  { title: "TechBid AI", desc: "Construction Estimator with AI suggestions and user-learned pricing.", img: TechBidAI_Home, link: "https://tech-bid-ai.vercel.app" },
+  { title: "IslamicBooks", desc: "E-Books Store for Classical Islamic Books and More!", img: IslamicBooks_Home, link: "https://islamic-books.vercel.app" },
+  { title: "BookStore", desc: "Modern bookstore full CRUD API & Database.", img: Bookstore_Home, link: "https://book-store-ashen-delta.vercel.app" },
 ];
 
 // Work Experience
 const workExperience = [
-  {
-    role: "Content Editor",
-    period: "2016 – 2018",
-    description: "Edited, proofread, and managed content ensuring consistency and accuracy.",
-  },
-  {
-    role: "Writing and Research",
-    period: "2018 – 2022",
-    description: "Deep researcher of Subjects, Ideologies, Literature, Writing and Communication, Religion etc.",
-  },
-  {
-    role: "Junior Engineer",
-    period: "2022 – 2023",
-    description: "Worked on real engineering problems, analyses, Design and project support.",
-  },
-  {
-    role: "Project Engineer",
-    period: "2023 – 2025",
-    description: "Led and coordinated Major engineering projects through all lifecycle stages.",
-  },
-  {
-    role: "Freelance Services",
-    period: "Since 2024",
-    description: "Providing web, UI/UX, and consulting solutions for diverse clients worldwide.",
-  },
-  {
-    role: "Full Stack Developer",
-    period: "2025 - Present",
-    description: "Building and maintaining end-to-end web applications using modern front-end and back-end technologies, ensuring scalable architecture, seamless user experiences, and efficient data management.",
-  },
+  { role: "Content Editor", period: "2016 to 2018", company: "Freelance" , description: "Edited, proofread, and managed content ensuring consistency and accuracy." },
+  { role: "Research", period: "2018 to 2022", company: "Freelance", description: "Deep researcher of subjects, ideologies, literature, and religion." },
+  { role: "B-Tech Graduate", period: "July-2022", company: "Osmania University", description: "Graduated as an Engineer 🎓" },
+  { role: "Junior Engineer", period: "Sept-2022 to Aug-2023", company: "RAS International", description: "Worked on real engineering problems, analyses, design and project support." },
+  { role: "Project Engineer", period: "Aug-2023 to Feb-2025", company: "ANC Contracting Co.", description: "Led and coordinated major engineering projects across all lifecycle stages." },
+  { role: "Full Stack Developer", period: "Since May-2024", company: "Upwork", description: "Providing web, UI/UX, and consulting solutions for diverse clients worldwide." },
+  { role: "Full Stack Developer", period: "June-2025 to Present", company: "Self-employed", description: "Building and maintaining end-to-end web apps using modern front-end and back-end technologies." },
 ];
 
 // Glitter Component
@@ -112,6 +74,45 @@ const skills = [
   { label: "AWS Cloud", icon: <FaAws className="text-blue-400 text-xl sm:text-2xl" /> },
 ];
 
+// Experience section with responsive marquee
+function ExperienceSection({ workExperience }) {
+  const scrollRef = useRef(null);
+  const [scrollWidth, setScrollWidth] = useState(0);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      setScrollWidth(scrollRef.current.scrollWidth / 2); // because we duplicate
+    }
+  }, [workExperience]);
+
+  return (
+    <section id="experience" className="py-20 bg-gradient-to-b from-[#0c0f1a] to-[#141830] text-white overflow-hidden relative">
+      <h2 className="text-3xl md:text-4xl text-center font-bold text-blue-400 mb-8">Chapters of My Career</h2>
+      <motion.div
+        ref={scrollRef}
+        className="flex space-x-4 sm:space-x-8"
+        animate={{ x: [0, -scrollWidth] }}
+        transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+      >
+        {[...workExperience, ...workExperience].map((job, idx) => (
+          <div
+            key={idx}
+            className="min-w-[160px] sm:min-w-[180px] bg-[#101325]/80 p-4 rounded-xl border border-blue-500 shadow-lg hover:scale-105 transition-transform"
+          >
+            <h3 className="text-xl font-semibold text-blue-300">{job.role}</h3>
+            <p className="text-sm text-blue-400 mb-1">{job.period}</p>
+            <p className="text-sm font-semibold text-blue-400 mb-1">{job.company}</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{job.description}</p>
+          </div>
+        ))}
+      </motion.div>
+      <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#0c0f1a] pointer-events-none" />
+      <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#141830] pointer-events-none" />
+    </section>
+  );
+}
+
+// Main App
 export default function App() {
   const heroRef = useRef(null);
   const { scrollY } = useScroll({ target: heroRef });
@@ -128,20 +129,10 @@ export default function App() {
             <img className="w-10" src="/SA Logo rm.png" alt="Logo" />
             Sharukh-Ahmed
           </div>
-          <button className="md:hidden block text-white text-2xl p-2 rounded-full hover:bg-blue-900/40" onClick={() => setMenuOpen(!menuOpen)}>
-            ☰
-          </button>
-          <motion.div
-            className={`absolute top-14 bg-black/85 left-0 w-full to-[#141830] md:bg-transparent md:static md:w-auto flex-col md:flex md:flex-row gap-4 p-4 md:p-0 shadow-lg md:shadow-none border-t border-blue-800 md:border-none transition-all ${menuOpen ? "flex" : "hidden"
-              }`}
-          >
+          <button className="md:hidden block text-white text-2xl p-2 rounded-full hover:bg-blue-900/40" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+          <motion.div className={`absolute top-14 bg-black/85 left-0 w-full md:bg-transparent md:static md:w-auto flex-col md:flex md:flex-row gap-4 p-4 md:p-0 shadow-lg md:shadow-none border-t border-blue-800 md:border-none transition-all ${menuOpen ? "flex" : "hidden"}`}>
             {["Home", "About", "Experience", "Projects", "Services", "Skills", "Contact"].map((section) => (
-              <a
-                key={section}
-                href={`#${section.toLowerCase()}`}
-                onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2 hover:text-blue-300 rounded-md hover:bg-blue-900/40 transition"
-              >
+              <a key={section} href={`#${section.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="block px-3 py-2 hover:text-blue-300 rounded-md hover:bg-blue-900/40 transition">
                 {section}
               </a>
             ))}
@@ -170,44 +161,24 @@ export default function App() {
         <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold text-blue-400">About Me</motion.h2>
         <div className="relative max-w-2xl mx-auto mt-4 text-lg text-gray-200 leading-relaxed">
           <motion.div className={`overflow-hidden transition-all duration-500 ease-in-out ${aboutExpanded ? "max-h-[1000px]" : "max-h-32"}`} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3, duration: 1 }}>
-            <p>
-              I'm Sharukh Ahmed, a passionate and self-taught frontend developer with a strong focus on creating intuitive,
-              user-friendly, and responsive web applications. My journey into web development began with a curiosity for design
-              and evolved into a commitment to crafting pixel-perfect interfaces using modern technologies like React.js,
-              Tailwind CSS, and Framer Motion.
-            </p>
+            <p>I'm Sharukh Ahmed, a passionate and self-taught frontend developer with a strong focus on creating intuitive, user-friendly, and responsive web applications. My journey into web development began with a curiosity for design and evolved into a commitment to crafting pixel-perfect interfaces using modern technologies like React.js, Tailwind CSS, and Framer Motion.</p>
             <p className="mt-4">With a background in engineering and project management, I bring a unique blend of problem-solving, attention to detail, and structured thinking to every project.</p>
             <p className="mt-4">I’m comfortable working across the full frontend stack — translating designs into interactive interfaces and utilizing REST APIs. My work is driven by the belief that great software is built at the intersection of design, technology, and empathy for the end user.</p>
             <p className="mt-4">When I’m not coding, I love exploring new tools and frameworks, learning about accessibility best practices, and continuously improving my craft. I’m currently looking for opportunities where I can contribute to a dynamic team and grow as a developer.</p>
-            {!aboutExpanded && <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0c0f1a] to-transparent pointer-events-none" />}
           </motion.div>
+          {!aboutExpanded && <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0c0f1a] to-transparent pointer-events-none" />}
           <button onClick={() => setAboutExpanded(!aboutExpanded)} className="mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-400 rounded-full text-white transition">
             {aboutExpanded ? "Show Less" : "Read More"}
           </button>
         </div>
       </section>
 
-      {/* Work Experience */}
-      <section id="experience" className="py-20 bg-gradient-to-b from-[#0c0f1a] to-[#141830] text-white overflow-hidden relative">
-        <h2 className="text-3xl md:text-4xl text-center font-bold text-blue-400 mb-8">Chapters of My Career</h2>
-        <motion.div className="flex space-x-8" animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 10 }}>
-          {[...workExperience, ...workExperience].map((job, idx) => (
-            <div key={idx} className="min-w-[280px] max-w-xs bg-[#101325]/80 p-4 rounded-xl border border-blue-500 shadow-lg flex-shrink-0 hover:scale-105 transition-transform">
-              <h3 className="text-xl font-semibold text-blue-300">{job.role}</h3>
-              <p className="text-sm text-blue-400 mb-1">{job.period}</p>
-              <p className="text-sm text-gray-200 leading-relaxed">{job.description}</p>
-            </div>
-          ))}
-        </motion.div>
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#0c0f1a] pointer-events-none" />
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#141830] pointer-events-none" />
-      </section>
+      {/* Experience */}
+      <ExperienceSection workExperience={workExperience} />
 
       {/* Projects */}
       <section id="projects" className="px-4 sm:px-6 py-16 bg-gradient-to-b from-[#0c0f1a] to-[#141830] text-white">
-        <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold text-center text-blue-400 mb-10">
-          My Projects
-        </motion.h2>
+        <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold text-center text-blue-400 mb-10">My Projects</motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((proj, idx) => (
             <motion.div key={idx} className="relative group cursor-pointer overflow-hidden rounded-xl shadow-xl bg-[#101325]/80 border border-blue-800" whileInView={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0.8 }} transition={{ duration: 0.5 }} whileTap={{ scale: 0.98 }} onClick={() => window.open(proj.link, "_blank")}>
@@ -250,55 +221,14 @@ export default function App() {
 
       {/* Contact */}
       <section id="contact" className="bg-gradient-to-b from-[#141830] to-[#0c0f1a] px-4 sm:px-6 py-20 text-center">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-3xl md:text-4xl font-bold text-blue-300"
-        >
-          Contact Me
-        </motion.h2>
+        <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold text-blue-300">Contact Me</motion.h2>
         <div className="mt-8 flex flex-col items-center space-y-6 text-xl text-blue-200">
-          {/* GitHub */}
-          <a
-            href="https://github.com/Sharukh-Ahmed"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 flex items-center gap-2"
-          >
-            <FaGithub /> GitHub
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/sharukh-ahmed"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 flex items-center gap-2"
-          >
-            <FaServer /> LinkedIn
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:sharukhahmed0706@gmail.com"
-            className="hover:text-blue-400 flex items-center gap-2"
-          >
-            <FaEnvelope /> sharukhahmed0706@gmail.com
-          </a>
-
-          {/* Resume */}
-          <a
-            href="https://drive.google.com/file/d/113g-gDKkezFVdKBwRUDzIB1ova5AobvV/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 flex items-center gap-2"
-          >
-            <FaDownload /> Download Resume
-          </a>
+          <a href="https://github.com/Sharukh-Ahmed" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaGithub /> GitHub</a>
+          <a href="https://www.linkedin.com/in/sharukh-ahmed" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaServer /> LinkedIn</a>
+          <a href="mailto:sharukhahmed0706@gmail.com" className="hover:text-blue-400 flex items-center gap-2"><FaEnvelope /> sharukhahmed0706@gmail.com</a>
+          <a href="https://drive.google.com/file/d/113g-gDKkezFVdKBwRUDzIB1ova5AobvV/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaDownload /> Download Resume</a>
         </div>
       </section>
-
     </div>
   );
 }
