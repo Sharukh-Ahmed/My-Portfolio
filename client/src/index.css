@@ -5,8 +5,38 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: auto !important;
+  scrollbar-color: #3b82f6 #1e293b !important;
 }
 
+/* Global custom scrollbar styles - enhanced */
+::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+  background: #1e293b !important; /* dark blue */
+  border-radius: 10px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b82f6 !important; /* bright blue */
+  border-radius: 10px !important;
+  border: 3px solid #1e293b !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb !important;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #1d4ed8 !important;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b !important;
+  border-radius: 10px !important;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: auto !important;
+  scrollbar-color: #3b82f6 #1e293b !important;
+}
 
 /* your custom classes like @keyframes twinkle can go below */
 @keyframes float-up {
