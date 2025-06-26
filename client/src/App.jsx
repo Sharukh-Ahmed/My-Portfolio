@@ -35,7 +35,7 @@ const projects = [
 
 // Work Experience
 const workExperience = [
-  { role: "Content Editor", period: "2016 to 2018", company: "Freelance" , description: "Edited, proofread, and managed content ensuring consistency and accuracy." },
+  { role: "Content Editor", period: "2016 to 2018", company: "Freelance", description: "Edited, proofread, and managed content ensuring consistency and accuracy." },
   { role: "Research", period: "2018 to 2022", company: "Freelance", description: "Deep researcher of subjects, ideologies, literature, and religion." },
   { role: "B-Tech Graduate", period: "July-2022", company: "Osmania University", description: "Graduated as an Engineer 🎓" },
   { role: "Junior Engineer", period: "Sept-2022 to Aug-2023", company: "RAS International", description: "Worked on real engineering problems, analyses, design and project support." },
@@ -163,7 +163,7 @@ export default function App() {
           ))}
         </motion.h1>
         <motion.p initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 1 }} className="relative z-10 mt-4 text-base sm:text-xl md:text-2xl max-w-xl text-white">
-          Frontend Developer crafting interactive UIs & delightful web experiences.
+          Full-stack developer - bringing beautiful front-end designs to life with powerful and scalable back-end systems.
         </motion.p>
         {/* Hero Buttons */}
         <div className="relative z-10 mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -208,10 +208,14 @@ export default function App() {
           </motion.div>
           <div className="relative w-full text-center">
             <motion.div className={`overflow-hidden transition-all duration-500 ease-in-out ${aboutExpanded ? 'max-h-[1000px]' : 'max-h-32'}`} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3, duration: 1 }}>
-              <p>I'm Sharukh Ahmed, a passionate and self-taught frontend developer with a strong focus on creating intuitive, user-friendly, and responsive web applications. My journey into web development began with a curiosity for design and evolved into a commitment to crafting pixel-perfect interfaces using modern technologies like React.js, Tailwind CSS, and Framer Motion.</p>
+              <p>I'm Sharukh Ahmed, a passionate and self-taught full-stack developer with a strong focus on crafting intuitive, user-friendly, and responsive web applications. My journey into web development began with a curiosity for design and evolved into a commitment to creating pixel-perfect interfaces and robust back-end services using modern tools like React.js, Node.js, Tailwind CSS, and MongoDB.</p>
+
               <p className="mt-4">With a background in engineering and project management, I bring a unique blend of problem-solving, attention to detail, and structured thinking to every project.</p>
-              <p className="mt-4">I'm comfortable working across the full frontend stack — translating designs into interactive interfaces and utilizing REST APIs. My work is driven by the belief that great software is built at the intersection of design, technology, and empathy for the end user.</p>
+
+              <p className="mt-4">I'm comfortable working across the full stack — turning ideas into polished front-end experiences, building efficient REST APIs, and ensuring seamless data flow. My work is driven by the belief that great software is built at the intersection of design, technology, and empathy for the end user.</p>
+
               <p className="mt-4">When I'm not coding, I love exploring new tools and frameworks, learning about accessibility best practices, and continuously improving my craft. I'm currently looking for opportunities where I can contribute to a dynamic team and grow as a developer.</p>
+
             </motion.div>
             {!aboutExpanded && <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0c0f1a] to-transparent pointer-events-none" />}
             <button onClick={() => setAboutExpanded(!aboutExpanded)} className="mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-400 rounded-full text-white transition">
