@@ -341,7 +341,7 @@ export default function App() {
           <a href="https://github.com/Sharukh-Ahmed" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaGithub /> GitHub</a>
           <a href="https://www.linkedin.com/in/sharukh-ahmed" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaServer /> LinkedIn</a>
           <a href="mailto:sharukhahmed0706@gmail.com" className="hover:text-blue-400 flex items-center gap-2"><FaEnvelope /> sharukhahmed0706@gmail.com</a>
-          <a href="https://drive.google.com/file/d/113g-gDKkezFVdKBwRUDzIB1ova5AobvV/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaDownload /> Download Resume</a>
+          <a href="https://drive.google.com/file/d/1AL29pm54YXpoEICZDPAEV2bKiks-p2bP/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-2"><FaDownload /> Download Resume</a>
         </div>
       </section>
     </div>
