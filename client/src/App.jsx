@@ -27,12 +27,13 @@ import CryptoCurrencyTrackerImg from "./assets/crypto-currency-tracker.png";
 const projects = [
   { title: "TechBid AI", desc: "Construction Estimator with AI suggestions and user-learned pricing.", img: TechBidAI_Home, link: "https://tech-bid-ai.vercel.app" },
   { title: "IslamicBooks", desc: "E-Books Store for Classical Islamic Books and More!", img: IslamicBooks_Home, link: "https://islamic-books.vercel.app" },
+  { title: "Crypto Currency Tracker", desc: "Track Latest Data for Currently Top 10 Crypto Currencies", img: CryptoCurrencyTrackerImg, link: "https://crypto-currency-calculator-nine.vercel.app/" },
   { title: "BookStore", desc: "Modern bookstore full CRUD API & Database.", img: Bookstore_Home, link: "https://book-store-ashen-delta.vercel.app" },
   { title: "Weather App", desc: "A simple and clean weather app showing real-time weather updates for any city.", img: WeatherAppImg, link: "https://sharukh-ahmed.github.io/weather-app/" },
   { title: "Currency Converter", desc: "Convert between currencies with real-time exchange rates.", img: CurrencyConvertorImg, link: "https://currency-converter-lilac-two-82.vercel.app/" },
   { title: "Tic Tac Toe", desc: "Classic tic-tac-toe game. Play and challenge your friends!", img: TicTacToeImg, link: "https://tic-tac-toe-woad-tau.vercel.app/" },
   { title: "Rock Paper Scissors", desc: "Play the classic rock-paper-scissors game against the computer.", img: RockPaperScissorImg, link: "https://rock-paper-scissors-nine-green.vercel.app/" },
-  { title: "Crypto Currency Tracker", desc: "Track Latest Data for Currently Top 10 Crypto Currencies", img: CryptoCurrencyTrackerImg, link: "https://crypto-currency-calculator-nine.vercel.app/" },
+
 ];
 
 // Work Experience
