@@ -21,7 +21,7 @@ import WeatherAppImg from "./assets/weather-app.png";
 import CurrencyConvertorImg from "./assets/currency-convertor.png";
 import TicTacToeImg from "./assets/tic-tac-toe.png";
 import RockPaperScissorImg from "./assets/rock-paper-scissor.png";
-import CryptoCurrencyTrackerImg from "./assets/crypto-currency-tracker.png";
+import CryptoCurrencyTrackerImg from "./assets/CryptoCurrencyTracker.png";
 
 // Projects
 const projects = [
