@@ -21,6 +21,7 @@ import WeatherAppImg from "./assets/weather-app.png";
 import CurrencyConvertorImg from "./assets/currency-convertor.png";
 import TicTacToeImg from "./assets/tic-tac-toe.png";
 import RockPaperScissorImg from "./assets/rock-paper-scissor.png";
+import CryptoCurrencyTrackerImg from "./assets/crypto-currency-tracker.png";
 
 // Projects
 const projects = [
@@ -31,6 +32,7 @@ const projects = [
   { title: "Currency Converter", desc: "Convert between currencies with real-time exchange rates.", img: CurrencyConvertorImg, link: "https://currency-converter-lilac-two-82.vercel.app/" },
   { title: "Tic Tac Toe", desc: "Classic tic-tac-toe game. Play and challenge your friends!", img: TicTacToeImg, link: "https://tic-tac-toe-woad-tau.vercel.app/" },
   { title: "Rock Paper Scissors", desc: "Play the classic rock-paper-scissors game against the computer.", img: RockPaperScissorImg, link: "https://rock-paper-scissors-nine-green.vercel.app/" },
+  { title: "Crypto Currency Tracker", desc: "Track Latest Data for Currently Top 10 Crypto Currencies", img: CryptoCurrencyTrackerImg, link: "https://crypto-currency-calculator-nine.vercel.app/" },
 ];
 
 // Work Experience
